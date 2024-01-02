@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAMA GENERATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+</head>
+<body>
+    <header class="main-head">
+        <nav>
+            <h1 id="logo">SAMA GENERATOR</h1>
+            <ul>
+                <li><a href="https://gs1senegal.org/a-propos">Qui sommes nous</a></li>
+                <li><a href="https://gs1senegal.org/services">Nos services GS1</a></li>
+                <li><a href="https://gs1senegal.org/actualites">Nos Evenements</a></li>
+                <li><a href="https://gs1senegal.org/contacts">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <h1>Générateur de clé de contrôle EAN-13 GS1 SENEGAL</h1>
+            <div class="texte">
+                <p>
+                    Cette fonctionnalité permet de calculer la clé de contrôle de
+                     vos codes au standard GS1 pour les unités de vente consommateurs( GTIN-13).
+                    Saisissez le nombre de clé à calculer ci-dessous</p>
+            </div>
+            <form action="generate.php" method="post">
+                <label for="quantity">Nombre de clés à générer :max=20  :</label>
+                <input type="number" name="quantity" min="1" max="20" required>
+                <input type="submit" value="Générer">
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <p><a href="https://gs1senegal.org/">Site web: gs1senegal.org</a></p>
+            <p>Le Langage Universel des Affaires</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    animation: backgroundAnimation 20s linear infinite;
+    background-size: cover;
+}
+@keyframes backgroundAnimation {
+    0% { background-image: url('images/imaga1.jpeg'); }
+    25% { background-image: url('images/image2.jpeg'); }
+    50% { background-image: url('images/image3.jpeg'); }
+    75% { background-image: url('images/image4.jpeg'); }
+    100% { background-image: url('images/image5.jpeg'); }
+}
+
+.container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+}
+nav h1{
+    font-size: 1.2rem;
+    color: #002C6C;
+}
+nav a{
+    color: #fff;
+    text-decoration: none;
+}
+/* HEADER*/
+.main-head{
+    background: #F26334;
+    color: #ffffffff;
+}
+nav {
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    padding: 0.5rem;
+}
+nav ul{
+    display: flex;
+    flex: 1 1 40rem;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+}
+nav ul a{
+    margin-right: 2px;
+}
+nav ul a:hover{
+    color: #002C6C;
+}
+#logo {
+    flex: 2 1 40rem;
+}
+
+
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #008DBD;
+}
+
+input {
+    padding: 8px;
+    margin-bottom: 20px;
+}
+input[type="submit"] {
+    background-color: #F26334; /* Rouge par défaut */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Ajoute une transition pour une animation fluide */
+}
+
+input[type="submit"]:hover {
+    background-color: #FF8200; /* Vert au survol */
+}
+
+h2 {
+    margin: 10px 0;
+}
+.texte{
+    font-size: 19px;
+    color: #ba0c0c;
+}
+.back {
+    background-color: #ba0c0c;
+}
+footer {
+    background-color: #002C6C;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 600px;
+    margin-top: auto;
+}
+.footer-content a{
+    color: #ffffff;
+}
+.footer-content p{
+    color: #22BCB9;
+}
+.footer-content a:hover {
+    color: #22BCB9; /* Vert au survol */
+}
+.footer-content p a{
+    color: #fff;
+    text-decoration: none;
+}
+

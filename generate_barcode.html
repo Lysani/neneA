@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Code-Barres</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/svg.js@3"></script>
+    <script src="JsBarcode.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/file-saver@2"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>JsBarcode("#barcodeContainer").init();</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #barcodeContainer {
+            margin-top: 20px;
+        }
+
+        #downloadButton {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #69170a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        #downloadButton:hover{
+            color: #00AC4A;
+        }
+        p a{
+            color: #fff;
+            background-color: #002C6C;
+             text-decoration: none;
+             transition: background-color 0.3s;
+        }
+        p a:hover{
+            color: #00AC4A;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-head">
+        <nav>
+            <h1 id="logo">SAMA GENERATOR</h1>
+            <ul>
+                <li><a href="https://gs1senegal.org/a-propos">Qui sommes nous</a></li>
+                <li><a href="https://gs1senegal.org/services">Nos services GS1</a></li>
+                <li><a href="https://gs1senegal.org/actualites">Nos Evenements</a></li>
+                <li><a href="https://gs1senegal.org/contacts">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Générateur de Code-Barres EAN-13</h1> 
+    <svg id="barcodeContainer"></svg>
+    <br>
+    <button id="downloadButton">Télécharger le Code-Barres (SVG)</button>
+    <br><br>
+    <p><a href="javascript:history.go(-1)">REVENIR A LA PAGE PRECEDENTE</a></p>
+    <p><a href="index.html">REVENIR A LA PAGE ACCUEIL</a></p>
+    <script>
+        // Récupérer le code EAN-13 de l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const eanCode = urlParams.get('ean');
+        if (eanCode) {
+            // Générer le code-barres
+            JsBarcode("#barcodeContainer", eanCode, {
+                format: "EAN13",
+                displayValue: true,
+                fontSize: 40, // Taille du texte
+                textMargin: -5,
+                fontWeight: "bold",
+                margin: 0, // Espacement entre le texte et les barres
+                fontOptions: "bold",
+                height: 82 ,// Hauteur des barres
+                textAlign: "center"
+            });
+        } else {
+            alert("Code EAN-13 non trouvé.");
+        }
+
+        // Gestion du téléchargement du code-barres au format SVG
+        document.getElementById('downloadButton').addEventListener('click', function() {
+            const svgElement = document.querySelector('svg');
+            const svgString = new XMLSerializer().serializeToString(svgElement);
+            const blob = new Blob([svgString], { type: 'image/svg+xml' });
+            saveAs(blob, 'code_barre_GS1.svg');
+        });
+    </script>
+</body>
+<footer>
+    <div class="footer-content">
+        <p><a href="https://gs1senegal.org/">Site web: gs1senegal.org</a></p>
+        <p>Le Langage Universel des Affaires</p>
+    </div>
+</footer>
+</html>
